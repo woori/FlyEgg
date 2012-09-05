@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e6e6fa"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/textView1"
+        android:layout_marginTop="70dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50dip"
+        android:text="@string/group" />
+
+    <LinearLayout 
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical"
+        >
+    
+        <LinearLayout 
+            android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal">
+		    <Button
+		        android:id="@+id/all"
+		        android:layout_width="500dip"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="70dip"
+		        android:text="전체" />
+		
+		    <Button
+		        android:id="@+id/fruits_vegitable"
+		        android:layout_width="500dip"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="70dip"
+		        android:text="과일 야채" />
+		</LinearLayout>
+		
+        <LinearLayout 
+            android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal">
+		    <Button
+		        android:id="@+id/kitchen_utensils"
+		        android:layout_width="500dip"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="70dip"
+		        android:text="주방용품" />
+		
+		    <Button
+		        android:id="@+id/vehicle"
+		        android:layout_width="500dip"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="70dip"
+		        android:text="탈 것" />
+		</LinearLayout>
+		
+        <LinearLayout 
+            android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal">
+		    <Button
+		        android:id="@+id/button5"
+		        android:layout_width="500dip"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="70dip"
+		        android:text="stuff" />
+		    
+		    <Button
+		        android:id="@+id/add"
+		        android:layout_width="500dip"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="70dip"
+		        android:text="추가.." />
+	    </LinearLayout>
+	    
+	</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">Egg</string>
+    <string name="main_ment">특별한 앱</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    
+    <string name="main_btn_1">특별한 낱말카드</string>
+    <string name="main_btn_2">나는야 암기왕</string>
+    <string name="main_btn_3">말하는 거울</string>
+    <string name="copyright">Copyright ........... fly.kr ...........</string>
+    
+    <string name="group">분 류</string>
+    
+	<string name="question">삭제할래?</string>
+	<string name="yes">확인</string>
+	<string name="no">취소</string>
+</resources>
