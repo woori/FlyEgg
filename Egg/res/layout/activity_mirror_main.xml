@@ -9,7 +9,12 @@
         android:layout_height="wrap_content"
         android:text="Mirror Test" />
 
-
-
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:layout_margin="50dp"
+        android:background="#eee" />
 
 </LinearLayout>

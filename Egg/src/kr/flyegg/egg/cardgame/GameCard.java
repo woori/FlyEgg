@@ -3,9 +3,6 @@ package kr.flyegg.egg.cardgame;
 import android.view.View;
 
 public class GameCard {
-	private static final int SOLVED = 1;	// 이미 풀렸는 카드여부
-	private static final int SIDE = 2;	// 카드면 (앞/뒤)
-	private static final int CARD_NO = 3;	// 할당된 카드번호
 
 	public static final String SIDE_FRONT = "front";
 	public static final String SIDE_BACK = "back";
