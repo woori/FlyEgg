@@ -4,6 +4,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <Button
+        android:id="@+id/workd_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dip"
+        android:text="@string/main_btn_1" />
+
+    <Button
+        android:id="@+id/game_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dip"
+        android:text="@string/main_btn_2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dip"
+        android:text="@string/main_btn_3" />
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -36,28 +57,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dip"
         >
-    
-	    <Button
-	        android:id="@+id/workd_card"
-	        android:layout_marginLeft="300dip"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/main_btn_1" />
-	
-	    <Button
-	        android:id="@+id/button3"
-	        android:layout_marginLeft="100dip"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/main_btn_2" />
-	
-	
-	    <Button
-	        android:id="@+id/button2"
-	        android:layout_marginLeft="100dip"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/main_btn_3" />
 	</LinearLayout>
 
     <TextView

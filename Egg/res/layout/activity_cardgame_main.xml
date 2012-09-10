@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <Button
+        android:id="@+id/btnGameEasy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1단계" />
+
+    <Button
+        android:id="@+id/btnGameNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2단계" />
+
+    <Button
+        android:id="@+id/btnGameHard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3단계" />
+
+
+</LinearLayout>

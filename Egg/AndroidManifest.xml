@@ -23,11 +23,17 @@
         
         <activity
             android:name=".ui.WordCardMain"
-            android:screenOrientation="landscape"       />
-        
-                <activity
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ui.CardGameMain"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ui.CardGameRun"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".ui.CardBoard"
-            android:screenOrientation="landscape"       />
+            android:screenOrientation="landscape" />
+
     </application>
 
 </manifest>
