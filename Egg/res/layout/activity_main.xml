@@ -12,14 +12,14 @@
         android:text="@string/main_btn_1" />
 
     <Button
-        android:id="@+id/game_card"
+        android:id="@+id/btnGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dip"
         android:text="@string/main_btn_2" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnMirror"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dip"
