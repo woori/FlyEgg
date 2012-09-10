@@ -1,5 +1,6 @@
 package kr.flyegg.egg;
 
+import kr.flyegg.egg.ui.CardBoard;
 import kr.flyegg.egg.ui.CardGameMain;
 import kr.flyegg.egg.ui.WordCardMain;
 import android.app.Activity;
@@ -43,7 +44,7 @@ public class MainActivity extends Activity {
     
     
     private void callWordCardActivity() {
-    	Intent i = new Intent(getApplicationContext(), WordCardMain.class);
+    	Intent i = new Intent(getApplicationContext(), CardBoard.class);
     	startActivity(i);
     }
     
