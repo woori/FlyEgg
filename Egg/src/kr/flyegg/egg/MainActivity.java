@@ -1,6 +1,7 @@
 package kr.flyegg.egg;
 
 import kr.flyegg.egg.ui.CardGameMain;
+import kr.flyegg.egg.ui.MirrorMain;
 import kr.flyegg.egg.ui.WordCardMain;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,8 +14,9 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
-	private Button wordCard= null;
-	private Button gameCard= null;
+	private Button wordCard = null;
+	private Button btnGame = null;
+	private Button btnMirror = null;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,13 +34,22 @@ public class MainActivity extends Activity {
 			}
 		});
         
-        gameCard = (Button) findViewById(R.id.game_card);
-        gameCard.setOnClickListener(new OnClickListener() {
+        btnGame = (Button) findViewById(R.id.btnGame);
+        btnGame.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 				callGameCardActivity();
 			}
 		});
+        
+        btnMirror = (Button) findViewById(R.id.btnMirror);
+        btnMirror.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				callMirrorActivity();
+			}
+		});
+
     }
     
     
@@ -52,6 +63,14 @@ public class MainActivity extends Activity {
      */
     private void callGameCardActivity() {
     	Intent i = new Intent(getApplicationContext(), CardGameMain.class);
+    	startActivity(i);
+    }
+    
+    /**
+     * Talking Mirror
+     */
+    private void callMirrorActivity() {
+    	Intent i = new Intent(getApplicationContext(), MirrorMain.class);
     	startActivity(i);
     }
 
