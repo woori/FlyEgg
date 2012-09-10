@@ -15,12 +15,16 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CardGameRun extends Activity {
 	
 	private static final String TAG = "CardGameRun";
+
+	private int pairs = 0;
 	
+	private ArrayList<GameCard> gameCards = new ArrayList<GameCard>();
 	/*
 	private static final int TAG_WRONG = 2;
 	private static final int TAG_CHECKED = 3;
@@ -39,12 +43,15 @@ public class CardGameRun extends Activity {
 //		Toast.makeText(getApplicationContext(), "Level:" + level, Toast.LENGTH_SHORT).show();
 		
 		if (level == 1) {
-			drawTable(2);
+			pairs = 2;
 		} else if (level == 2) {
-			drawTable(3);
+			pairs = 3;
 		} else if (level == 3) {
-			drawTable(4);
+			pairs = 4;
 		}
+
+		// 레벨에 맞는 테이블 그리기
+		drawGameTable(pairs);
 		
 		Log.d(TAG, "OnCreate Done");
 	}
@@ -56,15 +63,45 @@ public class CardGameRun extends Activity {
 		super.onDestroy();
 	}
 
+	/**
+	 * 선택된 카드 갯수
+	 * @return count
+	 */
+	private int getCheckedCardNum() {
+		int count = 0;
+		for (int i=0; i<gameCards.size(); i++) {
+			if (gameCards.get(i).isChecked()) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	/**
+	 * 완성 여부 확인
+	 * @return
+	 */
+	private boolean isAllSolved() {
+		for (int i=0; i<gameCards.size(); i++) {
+			if (gameCards.get(i).isSolved() == false) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
     /**
      * 카드패 그리기
      * @param pair
      */
-    public void drawTable(int pair) {
+    public void drawGameTable(int pair) {
     	Log.d(TAG, "DrawTable start");
+    	
         int row = 2;
         int col = 0;
         
+        // 짝 카드 수에 따른 row, col 정하기
         if (pair == 2) {
         	row = 2;
         	col = 2;
@@ -78,7 +115,8 @@ public class CardGameRun extends Activity {
         
         Log.d(TAG, "Make Card");
         
-        // card list
+        // card list 생성
+        // TODO: 카드 이미지의 아이디? 파일명?
     	ArrayList<Integer> cardsList = new ArrayList<Integer>();
     	for (int i=0; i<pair; i++) {
     		// 같은 카드를 두장 씩
@@ -103,10 +141,15 @@ public class CardGameRun extends Activity {
         
         TableLayout tableLayout = (TableLayout) findViewById(R.id.tblGame);
 
-        Log.d(TAG, "Clear Table View");
-        // clear table view
+        Log.d(TAG, "Clear Table View and GameCards");
+        
+        // clear table view and cards
 		tableLayout.removeAllViews();
+		gameCards.clear();
 
+		Integer cardNo = new Integer(0);
+		Log.d(TAG, "cardNo:" + cardNo);
+		
         for (int i=0; i<row; i++) { // row loop
 		
         	Log.d(TAG, "Create a row");
@@ -122,18 +165,19 @@ public class CardGameRun extends Activity {
 				
 				// 카드 정보
 				GameCard gameCard = new GameCard();
-				gameCard.setSide(GameCard.SIDE_BACK);
+				gameCard.setSide(GameCard.SIDE_BACK);	// 카드는 기본적으로 뒷면을 향함
+				btn.setBackgroundResource(R.drawable.ic_launcher);	// 뒷면 이미지 // TODO: 뒷면 이미지 리소스로 변경 
 				
+				// 카드 번호 지정
 				gameCard.setCardNo(cardsList.get(0));
 				cardsList.remove(0);
 				
 				// 카드 정보를 태그에 기록
-				btn.setTag(gameCard);
+//				btn.setTag(gameCard);
+				btn.setTag(cardNo++);
 				
-				// TODO: 이미지 보여주는 방식으로 변경
-//				btn.setText("Card");
-				btn.setText("no:" + gameCard.getCardNo());
-				//btn.setBackgroundResource(resid)
+				gameCard.setView(btn);
+				gameCards.add(gameCard);
 				
 				// 사이즈
 				Log.d(TAG, "Set Card Size");
@@ -159,18 +203,80 @@ public class CardGameRun extends Activity {
 
 		public void onClick(View v) {
 			Log.d(TAG, "Get Card Tag");
-			GameCard gameCard = (GameCard) v.getTag();
+//			GameCard gameCard = (GameCard) v.getTag();
+			Integer cardNo = (Integer) v.getTag();
 			
-			// 카드이미지를 띄우도록 한다.
-			/*
-			if (v.getTag(TAG_SOLVED) != null) {
+			Log.d(TAG, "CardNo:" + cardNo);
+//			Toast.makeText(getApplicationContext(), "CardNo:" + cardNo, Toast.LENGTH_SHORT).show();
+			GameCard gameCard = gameCards.get(cardNo);
+			
+			
+			// 풀었는 카드 선택시 아무것도 하지 않음
+			if (gameCard.isSolved()) {
 				return;
 			}
-			*/
-			Log.d(TAG, "Card Toast");
-			Toast.makeText(getApplicationContext(), "haha:" + gameCard.getCardNo(), Toast.LENGTH_SHORT).show();
-//			v.setBackgroundResource(R.drawable.ic_launcher);
-//			v.setBackgroundResource(0);
+
+			
+			// 이미 선택된 카드가 2개 있는 경우 선택된 카드들은 다시 뒤집음
+			if (getCheckedCardNum() == 2) {
+				
+				for (int i=0; i<gameCards.size(); i++) {
+					if (gameCards.get(i).isChecked()) {
+						// 선택된 카드 다시 뒤집기
+						gameCards.get(i).setSide(GameCard.SIDE_BACK);
+						gameCards.get(i).getView().setBackgroundResource(R.drawable.ic_launcher);
+						((Button) gameCards.get(i).getView()).setText("");
+						
+						gameCards.get(i).setChecked(false);
+					}
+				}
+			}
+			
+			// 선택되지 않은 카드 선택시 카드 뒤집음
+			if (gameCard.isChecked() == false) {
+				gameCard.setSide(GameCard.SIDE_FRONT);
+				gameCard.setChecked(true);	// 선택처리
+				
+				// TODO: 해당 카드 이미지가 나타나도록
+				((Button) v).setText("no:" + gameCard.getCardNo());
+				v.setBackgroundResource(0);
+			} else {
+				// 이미 선택된 카드 클릭시 아무것도 하지 않음
+				return;
+			}
+			
+			// 두개 선택되어 있는 경우 맞는지 틀린지 검사
+			if (getCheckedCardNum() == 2) {
+				int preCheckedCardIndex = -1;	// 선택된 카드 index
+				
+				for (int i=0; i<gameCards.size(); i++) {
+					if (gameCards.get(i).isChecked()) {
+						if (preCheckedCardIndex == -1) {
+							preCheckedCardIndex = i;
+							continue;
+						}
+						
+						// 이전 선택 카드 번호와 지금 선택 카드 번호가 같으면 맞음
+						if (gameCards.get(preCheckedCardIndex).getCardNo() == gameCards.get(i).getCardNo()) {
+							gameCards.get(preCheckedCardIndex).setSolved(true);
+							gameCards.get(i).setSolved(true);
+							
+							// 선택 해제
+							gameCards.get(preCheckedCardIndex).setChecked(false);
+							gameCards.get(i).setChecked(false);
+							
+//							Toast.makeText(getApplicationContext(), "짝짝짝", Toast.LENGTH_SHORT).show();
+							break;
+						}
+					}
+				}
+			} // end if 두개 선택시 맞는지 틀린지 검사
+			
+			// 전부 해결
+			if (isAllSolved()) {
+				Toast.makeText(getApplicationContext(), "우왕 굳! ㅋ Clear!", Toast.LENGTH_SHORT).show();
+			}
+	
 		}
 		
 	};
