@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        //È­¸é ¾È²¨Áö°Ô..
+        //í™”ë©´ ì•ˆêº¼ì§€ê²Œ..
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         
         wordCard = (Button) findViewById(R.id.workd_card);

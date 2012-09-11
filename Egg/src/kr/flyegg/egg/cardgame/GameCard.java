@@ -7,12 +7,12 @@ public class GameCard {
 	public static final String SIDE_FRONT = "front";
 	public static final String SIDE_BACK = "back";
 
-	private boolean solved;		// ÇØ°á¿©ºÎ
-	private boolean checked;	// ¼±ÅÃ¿©ºÎ
-	private String side;		// ¾Õ/µÚ
-	private int cardNo;			// Ä«µå¹øÈ£
+	private boolean solved;		// í•´ê²°ì—¬ë¶€
+	private boolean checked;	// ì„ íƒì—¬ë¶€
+	private String side;		// ì•/ë’¤
+	private int cardNo;			// ì¹´ë“œë²ˆí˜¸
 	
-	private View view;	// ¿¬°áµÈ View Object
+	private View view;	// ì—°ê²°ëœ View Object
 	
 	public boolean isSolved() {
 		return solved;

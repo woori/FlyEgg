@@ -49,7 +49,7 @@ public class CardGameRun extends Activity {
 			pairs = 4;
 		}
 
-		// ·¹º§¿¡ ¸Â´Â Å×ÀÌºí ±×¸®±â
+		// ë ˆë²¨ì— ë§ëŠ” í…Œì´ë¸” ê·¸ë¦¬ê¸°
 		drawGameTable(pairs);
 		
 		Log.d(TAG, "OnCreate Done");
@@ -63,7 +63,7 @@ public class CardGameRun extends Activity {
 	}
 
 	/**
-	 * ¼±ÅÃµÈ Ä«µå °¹¼ö
+	 * ì„ íƒëœ ì¹´ë“œ ê°¯ìˆ˜
 	 * @return count
 	 */
 	private int getCheckedCardNum() {
@@ -77,7 +77,7 @@ public class CardGameRun extends Activity {
 	}
 
 	/**
-	 * ¿Ï¼º ¿©ºÎ È®ÀÎ
+	 * ì™„ì„± ì—¬ë¶€ í™•ì¸
 	 * @return
 	 */
 	private boolean isAllSolved() {
@@ -91,7 +91,7 @@ public class CardGameRun extends Activity {
 	}
 	
     /**
-     * Ä«µåÆĞ ±×¸®±â
+     * ì¹´ë“œíŒ¨ ê·¸ë¦¬ê¸°
      * @param pair
      */
     public void drawGameTable(int pair) {
@@ -100,7 +100,7 @@ public class CardGameRun extends Activity {
         int row = 2;
         int col = 0;
         
-        // Â¦ Ä«µå ¼ö¿¡ µû¸¥ row, col Á¤ÇÏ±â
+        // ì§ ì¹´ë“œ ìˆ˜ì— ë”°ë¥¸ row, col ì •í•˜ê¸°
         if (pair == 2) {
         	row = 2;
         	col = 2;
@@ -114,11 +114,11 @@ public class CardGameRun extends Activity {
         
         Log.d(TAG, "Make Card");
         
-        // card list »ı¼º
-        // TODO: Ä«µå ÀÌ¹ÌÁöÀÇ ¾ÆÀÌµğ? ÆÄÀÏ¸í?
+        // card list ìƒì„±
+        // TODO: ì¹´ë“œ ì´ë¯¸ì§€ì˜ ì•„ì´ë””? íŒŒì¼ëª…?
     	ArrayList<Integer> cardsList = new ArrayList<Integer>();
     	for (int i=0; i<pair; i++) {
-    		// °°Àº Ä«µå¸¦ µÎÀå ¾¿
+    		// ê°™ì€ ì¹´ë“œë¥¼ ë‘ì¥ ì”©
     		cardsList.add(i);
     		cardsList.add(i);
     	}
@@ -136,7 +136,7 @@ public class CardGameRun extends Activity {
     	}
     	
     	////////////////////////////////////////////
-    	// Ä«µå ±×¸®±â (¹öÆ°)
+    	// ì¹´ë“œ ê·¸ë¦¬ê¸° (ë²„íŠ¼)
         
         TableLayout tableLayout = (TableLayout) findViewById(R.id.tblGame);
 
@@ -162,23 +162,23 @@ public class CardGameRun extends Activity {
 				Log.d(TAG, "Create a button");
 				Button btn = new Button(this);
 				
-				// Ä«µå Á¤º¸
+				// ì¹´ë“œ ì •ë³´
 				GameCard gameCard = new GameCard();
-				gameCard.setSide(GameCard.SIDE_BACK);	// Ä«µå´Â ±âº»ÀûÀ¸·Î µŞ¸éÀ» ÇâÇÔ
-				btn.setBackgroundResource(R.drawable.ic_launcher);	// µŞ¸é ÀÌ¹ÌÁö // TODO: µŞ¸é ÀÌ¹ÌÁö ¸®¼Ò½º·Î º¯°æ 
+				gameCard.setSide(GameCard.SIDE_BACK);	// ì¹´ë“œëŠ” ê¸°ë³¸ì ìœ¼ë¡œ ë’·ë©´ì„ í–¥í•¨
+				btn.setBackgroundResource(R.drawable.ic_launcher);	// ë’·ë©´ ì´ë¯¸ì§€ // TODO: ë’·ë©´ ì´ë¯¸ì§€ ë¦¬ì†ŒìŠ¤ë¡œ ë³€ê²½ 
 				
-				// Ä«µå ¹øÈ£ ÁöÁ¤
+				// ì¹´ë“œ ë²ˆí˜¸ ì§€ì •
 				gameCard.setCardNo(cardsList.get(0));
 				cardsList.remove(0);
 				
-				// Ä«µå Á¤º¸¸¦ ÅÂ±×¿¡ ±â·Ï
+				// ì¹´ë“œ ì •ë³´ë¥¼ íƒœê·¸ì— ê¸°ë¡
 //				btn.setTag(gameCard);
 				btn.setTag(cardNo++);
 				
 				gameCard.setView(btn);
 				gameCards.add(gameCard);
 				
-				// »çÀÌÁî
+				// ì‚¬ì´ì¦ˆ
 				Log.d(TAG, "Set Card Size");
 				btn.setWidth(100);
 				btn.setHeight(100);
@@ -197,7 +197,7 @@ public class CardGameRun extends Activity {
         }
     }
     
-    // Ä«µå Å¬¸¯ Ã³¸®
+    // ì¹´ë“œ í´ë¦­ ì²˜ë¦¬
 	private OnClickListener cardClickListener = new OnClickListener() {
 
 		public void onClick(View v) {
@@ -210,18 +210,18 @@ public class CardGameRun extends Activity {
 			GameCard gameCard = gameCards.get(cardNo);
 			
 			
-			// Ç®¾ú´Â Ä«µå ¼±ÅÃ½Ã ¾Æ¹«°Íµµ ÇÏÁö ¾ÊÀ½
+			// í’€ì—ˆëŠ” ì¹´ë“œ ì„ íƒì‹œ ì•„ë¬´ê²ƒë„ í•˜ì§€ ì•ŠìŒ
 			if (gameCard.isSolved()) {
 				return;
 			}
 
 			
-			// ÀÌ¹Ì ¼±ÅÃµÈ Ä«µå°¡ 2°³ ÀÖ´Â °æ¿ì ¼±ÅÃµÈ Ä«µåµéÀº ´Ù½Ã µÚÁıÀ½
+			// ì´ë¯¸ ì„ íƒëœ ì¹´ë“œê°€ 2ê°œ ìˆëŠ” ê²½ìš° ì„ íƒëœ ì¹´ë“œë“¤ì€ ë‹¤ì‹œ ë’¤ì§‘ìŒ
 			if (getCheckedCardNum() == 2) {
 				
 				for (int i=0; i<gameCards.size(); i++) {
 					if (gameCards.get(i).isChecked()) {
-						// ¼±ÅÃµÈ Ä«µå ´Ù½Ã µÚÁı±â
+						// ì„ íƒëœ ì¹´ë“œ ë‹¤ì‹œ ë’¤ì§‘ê¸°
 						gameCards.get(i).setSide(GameCard.SIDE_BACK);
 						gameCards.get(i).getView().setBackgroundResource(R.drawable.ic_launcher);
 						((Button) gameCards.get(i).getView()).setText("");
@@ -231,22 +231,22 @@ public class CardGameRun extends Activity {
 				}
 			}
 			
-			// ¼±ÅÃµÇÁö ¾ÊÀº Ä«µå ¼±ÅÃ½Ã Ä«µå µÚÁıÀ½
+			// ì„ íƒë˜ì§€ ì•Šì€ ì¹´ë“œ ì„ íƒì‹œ ì¹´ë“œ ë’¤ì§‘ìŒ
 			if (gameCard.isChecked() == false) {
 				gameCard.setSide(GameCard.SIDE_FRONT);
-				gameCard.setChecked(true);	// ¼±ÅÃÃ³¸®
+				gameCard.setChecked(true);	// ì„ íƒì²˜ë¦¬
 				
-				// TODO: ÇØ´ç Ä«µå ÀÌ¹ÌÁö°¡ ³ªÅ¸³ªµµ·Ï
+				// TODO: í•´ë‹¹ ì¹´ë“œ ì´ë¯¸ì§€ê°€ ë‚˜íƒ€ë‚˜ë„ë¡
 				((Button) v).setText("no:" + gameCard.getCardNo());
 				v.setBackgroundResource(0);
 			} else {
-				// ÀÌ¹Ì ¼±ÅÃµÈ Ä«µå Å¬¸¯½Ã ¾Æ¹«°Íµµ ÇÏÁö ¾ÊÀ½
+				// ì´ë¯¸ ì„ íƒëœ ì¹´ë“œ í´ë¦­ì‹œ ì•„ë¬´ê²ƒë„ í•˜ì§€ ì•ŠìŒ
 				return;
 			}
 			
-			// µÎ°³ ¼±ÅÃµÇ¾î ÀÖ´Â °æ¿ì ¸Â´ÂÁö Æ²¸°Áö °Ë»ç
+			// ë‘ê°œ ì„ íƒë˜ì–´ ìˆëŠ” ê²½ìš° ë§ëŠ”ì§€ í‹€ë¦°ì§€ ê²€ì‚¬
 			if (getCheckedCardNum() == 2) {
-				int preCheckedCardIndex = -1;	// ¼±ÅÃµÈ Ä«µå index
+				int preCheckedCardIndex = -1;	// ì„ íƒëœ ì¹´ë“œ index
 				
 				for (int i=0; i<gameCards.size(); i++) {
 					if (gameCards.get(i).isChecked()) {
@@ -255,25 +255,25 @@ public class CardGameRun extends Activity {
 							continue;
 						}
 						
-						// ÀÌÀü ¼±ÅÃ Ä«µå ¹øÈ£¿Í Áö±İ ¼±ÅÃ Ä«µå ¹øÈ£°¡ °°À¸¸é ¸ÂÀ½
+						// ì´ì „ ì„ íƒ ì¹´ë“œ ë²ˆí˜¸ì™€ ì§€ê¸ˆ ì„ íƒ ì¹´ë“œ ë²ˆí˜¸ê°€ ê°™ìœ¼ë©´ ë§ìŒ
 						if (gameCards.get(preCheckedCardIndex).getCardNo() == gameCards.get(i).getCardNo()) {
 							gameCards.get(preCheckedCardIndex).setSolved(true);
 							gameCards.get(i).setSolved(true);
 							
-							// ¼±ÅÃ ÇØÁ¦
+							// ì„ íƒ í•´ì œ
 							gameCards.get(preCheckedCardIndex).setChecked(false);
 							gameCards.get(i).setChecked(false);
 							
-//							Toast.makeText(getApplicationContext(), "Â¦Â¦Â¦", Toast.LENGTH_SHORT).show();
+//							Toast.makeText(getApplicationContext(), "ì§ì§ì§", Toast.LENGTH_SHORT).show();
 							break;
 						}
 					}
 				}
-			} // end if µÎ°³ ¼±ÅÃ½Ã ¸Â´ÂÁö Æ²¸°Áö °Ë»ç
+			} // end if ë‘ê°œ ì„ íƒì‹œ ë§ëŠ”ì§€ í‹€ë¦°ì§€ ê²€ì‚¬
 			
-			// ÀüºÎ ÇØ°á
+			// ì „ë¶€ í•´ê²°
 			if (isAllSolved()) {
-				Toast.makeText(getApplicationContext(), "¿ì¿Õ ±»! ¤» Clear!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ìš°ì™• êµ³! ã…‹ Clear!", Toast.LENGTH_SHORT).show();
 			}
 	
 		}

@@ -23,12 +23,12 @@ public class CardGameMain extends Activity {
 		setContentView(R.layout.activity_cardgame_main);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		
-	    // ∑π∫ß ≈¨∏Ø √≥∏Æ
+	    // Î†àÎ≤® ÌÅ¥Î¶≠ Ï≤òÎ¶¨
 		OnClickListener levelClickListener = new OnClickListener() {
 
 			public void onClick(View v) {
 				
-				int level = 0;	// º±≈√∑π∫ß
+				int level = 0;	// ÏÑ†ÌÉùÎ†àÎ≤®
 				
 				if (v.getId() == R.id.btnGameEasy) {
 					level = LEVEL_1;
@@ -49,7 +49,7 @@ public class CardGameMain extends Activity {
 			}
 		};
 		
-		// ∑π∫ß ≈¨∏Ø ¿Ã∫•∆Æ ø¨∞·
+		// Î†àÎ≤® ÌÅ¥Î¶≠ Ïù¥Î≤§Ìä∏ Ïó∞Í≤∞
 		findViewById(R.id.btnGameEasy).setOnClickListener(levelClickListener);
 		findViewById(R.id.btnGameNormal).setOnClickListener(levelClickListener);
 		findViewById(R.id.btnGameHard).setOnClickListener(levelClickListener);

@@ -22,8 +22,8 @@ import android.widget.ImageView.ScaleType;
 
 public class WordCardMain extends Activity {
 
-	//¹öÆ°Àº ºĞ·ùÀÇ °³¼ö¿¡ µû¶ó µ¿ÀûÀ¸·Î ¸¸µé¾î Á®¾ßÇÑ´Ù.
-	//ºĞ·ù¸¦ db¿¡ ÀúÀåÇØ¾ßÇÑ´Ù.
+	//ë²„íŠ¼ì€ ë¶„ë¥˜ì˜ ê°œìˆ˜ì— ë”°ë¼ ë™ì ìœ¼ë¡œ ë§Œë“¤ì–´ ì ¸ì•¼í•œë‹¤.
+	//ë¶„ë¥˜ë¥¼ dbì— ì €ì¥í•´ì•¼í•œë‹¤.
 	private Button frui_vegi = null;
 	
 	@Override
@@ -59,7 +59,7 @@ public class WordCardMain extends Activity {
 		try {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	
-			builder.setTitle("»èÁ¦");
+			builder.setTitle("ì‚­ì œ");
 			builder.setMessage(getString(R.string.question))
 			        .setCancelable(false)
 			        .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {

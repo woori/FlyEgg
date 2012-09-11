@@ -22,13 +22,13 @@ public class CardBoard extends TabActivity implements TabHost.TabContentFactory 
 		tabHost = getTabHost();
 		TabHost.TabSpec spec = null;
 	
-		spec = tabHost.newTabSpec("ÀüÃ¼");
+		spec = tabHost.newTabSpec("ì „ì²´");
 		tabHost.addTab( spec );
 		
-		spec = tabHost.newTabSpec("°úÀÏ");
+		spec = tabHost.newTabSpec("ê³¼ì¼");
 		tabHost.addTab(spec);
 		
-		spec = tabHost.newTabSpec("Å»°Í");
+		spec = tabHost.newTabSpec("íƒˆê²ƒ");
 		tabHost.addTab(spec);
 		
 		tabHost.setCurrentTab( 0 );

@@ -58,7 +58,7 @@ public class MirrorMain extends Activity {
 		*/
 		
 		
-	    // ≈¨∏Ø ¿Ã∫•∆Æ
+	    // ÌÅ¥Î¶≠ Ïù¥Î≤§Ìä∏
 		/*
 		OnClickListener levelClickListener = new OnClickListener() {
 
@@ -69,7 +69,7 @@ public class MirrorMain extends Activity {
 		};
 		*/
 		
-		// ≈¨∏Ø ¿Ã∫•∆Æ ø¨∞·
+		// ÌÅ¥Î¶≠ Ïù¥Î≤§Ìä∏ Ïó∞Í≤∞
 //		findViewById(R.id.btnGameEasy).setOnClickListener(levelClickListener);
 		
 		
